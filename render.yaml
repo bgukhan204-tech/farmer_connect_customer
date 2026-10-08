@@ -1,0 +1,36 @@
+services:
+  # 1. Spring Boot Backend Web Service
+  - type: web
+    name: agriconnect-backend
+    runtime: docker
+    dockerfilePath: ./springboot-backend/Dockerfile
+    dockerContext: ./springboot-backend
+    region: singapore
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: JWT_SECRET
+        value: AgriConnectSecretKey2024SuperLongSecretKeyForHMACSHA256Signing
+      - key: RAZORPAY_KEY_ID
+        value: rzp_test_YOUR_KEY_ID
+      - key: RAZORPAY_KEY_SECRET
+        value: YOUR_KEY_SECRET
+
+  # 2. React + Vite Frontend Static Site
+  - type: web
+    name: agriconnect-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: agriconnect-backend
+          property: host

@@ -1,0 +1,31 @@
+# Node / React
+
+node_modules/
+dist/
+build/
+
+# Java / Spring Boot
+
+target/
+*.class
+*.jar
+
+# Database
+
+*.db
+*.sqlite
+*.mv.db
+*.trace.db
+
+# IDE
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+
+# Environment
+
+.env

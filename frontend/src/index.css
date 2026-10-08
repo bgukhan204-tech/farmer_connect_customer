@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+
+/* ===== CSS Variables — AgriConnect Theme ===== */
+:root {
+  --primary:       #1a6b2f;
+  --primary-dark:  #124d22;
+  --primary-light: #27a046;
+  --accent:        #f59e0b;
+  --accent-dark:   #d97706;
+  --bg:            #f9fafb;
+  --bg-card:       #ffffff;
+  --bg-dark:       #0f2d18;
+  --text:          #1a1a1a;
+  --text-muted:    #6b7280;
+  --text-light:    #9ca3af;
+  --border:        #e5e7eb;
+  --success:       #10b981;
+  --danger:        #ef4444;
+  --shadow:        0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:     0 12px 40px rgba(0,0,0,0.14);
+  --radius:        12px;
+  --radius-lg:     20px;
+  --transition:    all 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+input, textarea, select { font-family: inherit; outline: none; }
+img { max-width: 100%; display: block; }
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+
+/* ===== Utility Classes ===== */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+.page      { padding: 2rem 0; min-height: calc(100vh - 70px); }
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.65rem 1.4rem; border-radius: var(--radius);
+  font-weight: 600; font-size: 0.9rem;
+  transition: var(--transition); white-space: nowrap;
+}
+.btn-primary {
+  background: var(--primary); color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-dark); transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(26,107,47,0.35);
+}
+.btn-accent {
+  background: var(--accent); color: #fff;
+}
+.btn-accent:hover {
+  background: var(--accent-dark); transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245,158,11,0.35);
+}
+.btn-outline {
+  background: transparent; color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.btn-danger  { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: #dc2626; }
+.btn-lg { padding: 0.85rem 2rem; font-size: 1rem; }
+.btn-sm { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+.btn-full { width: 100%; justify-content: center; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+/* ===== Cards ===== */
+.card {
+  background: var(--bg-card); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+/* ===== Form Inputs ===== */
+.input-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem; }
+.input-group label { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+.input-field {
+  padding: 0.75rem 1rem; border: 2px solid var(--border);
+  border-radius: var(--radius); font-size: 0.95rem;
+  background: var(--bg); transition: var(--transition);
+  width: 100%;
+}
+.input-field:focus { border-color: var(--primary); background: #fff; }
+.input-field::placeholder { color: var(--text-light); }
+
+/* ===== Badge ===== */
+.badge {
+  display: inline-block; padding: 0.2rem 0.7rem;
+  border-radius: 999px; font-size: 0.75rem; font-weight: 600;
+}
+.badge-green  { background: #d1fae5; color: #065f46; }
+.badge-amber  { background: #fef3c7; color: #92400e; }
+.badge-red    { background: #fee2e2; color: #991b1b; }
+.badge-blue   { background: #dbeafe; color: #1e40af; }
+
+/* ===== Section Headings ===== */
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; font-weight: 700; color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.section-sub { color: var(--text-muted); margin-bottom: 2rem; }
+
+/* ===== Stars ===== */
+.stars { color: var(--accent); font-size: 0.9rem; letter-spacing: 1px; }
+
+/* ===== Grid ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ===== Spinner ===== */
+.spinner {
+  width: 42px; height: 42px;
+  border: 4px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 3rem auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Toast / Alert ===== */
+.alert {
+  padding: 0.85rem 1.2rem; border-radius: var(--radius);
+  font-size: 0.9rem; font-weight: 500; margin-bottom: 1rem;
+}
+.alert-error   { background: #fee2e2; color: #991b1b; border-left: 4px solid var(--danger); }
+.alert-success { background: #d1fae5; color: #065f46; border-left: 4px solid var(--success); }
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center; padding: 4rem 2rem; color: var(--text-muted);
+}
+.empty-state .emoji { font-size: 4rem; margin-bottom: 1rem; }
+.empty-state h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-grid .card { padding: 1.25rem !important; }
+  .section-title { font-size: 1.4rem; }
+}
